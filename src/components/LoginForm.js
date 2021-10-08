@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import LabeledInput from "./LabeledInput";
 import classes from "./LoginForm.module.css";
 
 function LoginForm() {
@@ -7,19 +8,17 @@ function LoginForm() {
 
   function login_handler(event) {
     event.preventDefault();
-
     const enteredUsername = usernameInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-
     const userData = {
       username: enteredUsername,
       password: enteredPassword,
     };
     // Send API
     console.log(userData);
-    fetch("API link", {
-      body: JSON.stringify(userData),
-    });
+    // fetch("API link", {
+    //   body: JSON.stringify(userData),
+    // });
   }
 
   function signup_handler() {}
@@ -27,10 +26,20 @@ function LoginForm() {
   return (
     <form className={classes.background}>
       <h2 className={classes.login}>Login</h2>
-      <p>Username :</p>
-      <input type="text" required id="username" ref={usernameInputRef} />
-      <p>Password :</p>
-      <input type="password" required id="password" ref={passwordInputRef} />
+      <LabeledInput
+        label="Username :"
+        type="text"
+        id="username"
+        required={true}
+        refer={usernameInputRef}
+      />
+      <LabeledInput
+        label="Password :"
+        type="password"
+        id="password"
+        required={true}
+        refer={passwordInputRef}
+      />
       <div>
         <button onClick={signup_handler}>Sign up</button>
         <button onClick={login_handler}>Login</button>
