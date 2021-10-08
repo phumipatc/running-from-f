@@ -26,20 +26,22 @@ function LoginForm() {
   return (
     <form className={classes.background}>
       <h2 className={classes.login}>Login</h2>
-      <LabeledInput
-        label="Username :"
-        type="text"
-        id="username"
-        required={true}
-        refer={usernameInputRef}
-      />
-      <LabeledInput
-        label="Password :"
-        type="password"
-        id="password"
-        required={true}
-        refer={passwordInputRef}
-      />
+      <div>
+        <LabeledInput
+          label="Username :"
+          type="text"
+          id="username"
+          required={true}
+          refer={usernameInputRef}
+        />
+        <LabeledInput
+          label="Password :"
+          type="password"
+          id="password"
+          required={true}
+          refer={passwordInputRef}
+        />
+      </div>
       <div>
         <button onClick={signup_handler}>Sign up</button>
         <button onClick={login_handler}>Login</button>

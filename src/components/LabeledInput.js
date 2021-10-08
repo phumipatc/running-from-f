@@ -1,3 +1,5 @@
+import classes from "./LabeledInput.module.css";
+
 function LabeledInput(props) {
   return (
     <div>
