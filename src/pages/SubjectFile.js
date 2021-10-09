@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Redirect, history, useHistory } from "react-router";
+import { Redirect, history, useHistory, location } from "react-router";
 import Loading from "../components/Loading";
 
 function SubjectFile(props) {
@@ -9,7 +9,7 @@ function SubjectFile(props) {
   const API_Link = "";
 
   useEffect(() => {
-    document.title = props.id;
+    document.title = props.location.id;
     // fetch(API_Link,{
     //   body=JSON.stringify(props.id)
     // }).then((response)=>{
@@ -20,7 +20,8 @@ function SubjectFile(props) {
     // });
   }, []);
 
-  if (props.id === undefined) {
+  console.log(props.location.id);
+  if (props.location.id === undefined) {
     history.replace("/");
   }
 
