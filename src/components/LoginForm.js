@@ -1,10 +1,12 @@
 import { useRef } from "react";
+import { useHistory } from "react-router";
 import LabeledInput from "./LabeledInput";
 import classes from "./LoginForm.module.css";
 
 function LoginForm() {
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
+  const history = useHistory();
 
   function login_handler(event) {
     event.preventDefault();
@@ -19,6 +21,7 @@ function LoginForm() {
     // fetch("API link", {
     //   body: JSON.stringify(userData),
     // });
+    localStorage.setItem("user", userData.username);
   }
 
   function signup_handler() {}
