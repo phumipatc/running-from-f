@@ -9,6 +9,7 @@ function SubjectFile(props) {
   const API_Link = "";
 
   useEffect(() => {
+    document.title = props.id;
     // fetch(API_Link,{
     //   body=JSON.stringify(props.id)
     // }).then((response)=>{

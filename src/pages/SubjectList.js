@@ -7,6 +7,8 @@ function SubjectList() {
   const API_Link = "";
 
   useEffect(() => {
+    document.title = "Subjects";
+
     // fetch(API_Link)
     //   .then((response) => {
     //     return response.json();
