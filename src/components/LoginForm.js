@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import LabeledInput from "./LabeledInput";
 import classes from "./LoginForm.module.css";
 
@@ -32,7 +32,9 @@ function LoginForm() {
     localStorage.setItem("user", userData.username);
   }
 
-  function signup_handler() {}
+  function signup_handler() {
+    return <Redirect to="/signup" />;
+  }
 
   return (
     <form className={classes.background}>
