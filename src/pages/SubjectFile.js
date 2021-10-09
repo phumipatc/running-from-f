@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { Redirect } from "react-router";
+import { Redirect, history, useHistory } from "react-router";
 import Loading from "../components/Loading";
 
 function SubjectFile(props) {
   const [FileList, SetFileList] = useState();
   const [IsLoading, SetIsLoading] = useState(true);
+  const history = useHistory();
   const API_Link = "";
+
   useEffect(() => {
     // fetch(API_Link,{
     //   body=JSON.stringify(props.id)
@@ -16,8 +18,9 @@ function SubjectFile(props) {
     //   SetFileList(data);
     // });
   }, []);
+
   if (props.id === undefined) {
-    return <Redirect to="/" />;
+    history.replace("/");
   }
 
   if (IsLoading) {

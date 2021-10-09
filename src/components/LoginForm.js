@@ -34,7 +34,7 @@ function LoginForm() {
   }
 
   function signup_handler() {
-    return <Redirect to="/signup" />;
+    history.push("/signup");
   }
 
   return (
