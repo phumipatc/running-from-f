@@ -16,11 +16,19 @@ function LoginForm() {
       username: enteredUsername,
       password: enteredPassword,
     };
+
     // Send API
     console.log(userData);
-    // fetch("API link", {
-    //   body: JSON.stringify(userData),
-    // });
+    fetch("API link", {
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        localStorage.setItem("user", userData.username);
+        history.replace("/");
+      });
     localStorage.setItem("user", userData.username);
   }
 
