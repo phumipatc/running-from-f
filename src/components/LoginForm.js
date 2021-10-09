@@ -7,6 +7,7 @@ function LoginForm() {
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
   const history = useHistory();
+  const API_Link = "";
 
   function login_handler(event) {
     event.preventDefault();
@@ -19,16 +20,16 @@ function LoginForm() {
 
     // Send API
     console.log(userData);
-    fetch("API link", {
-      body: JSON.stringify(userData),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        localStorage.setItem("user", userData.username);
-        history.replace("/");
-      });
+    // fetch(API_Link, {
+    //   body: JSON.stringify(userData),
+    // })
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     localStorage.setItem("user", userData.username);
+    //     history.replace("/");
+    //   });
     localStorage.setItem("user", userData.username);
   }
 
