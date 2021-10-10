@@ -2,7 +2,7 @@ import classes from "./LabeledInput.module.css";
 
 function LabeledInput(props) {
   return (
-    <div className={classes.background}>
+    <div>
       <p className={classes.label}>{props.label}</p>
       <input
         className={classes.input}

@@ -8,8 +8,11 @@ function Signup() {
   });
 
   return (
-    <div>
-      <SignupForm />
+    <div className={classes.background}>
+      <p className={classes.topic}>รวมโจทย์หนี F</p>
+      <div className={classes.form}>
+        <SignupForm />
+      </div>
     </div>
   );
 }

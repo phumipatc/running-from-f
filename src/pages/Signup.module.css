@@ -1,0 +1,23 @@
+.background {
+  background-color: #f9d7d5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.topic {
+  font-family: "Mali";
+  font-size: 7vh;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 12vh;
+  margin-bottom: 5vh;
+}
+
+.form {
+  background-color: white;
+  box-sizing: border-box;
+  width: 77vw;
+  height: 70vh;
+}

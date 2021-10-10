@@ -41,20 +41,24 @@ function LoginForm() {
     <form className={classes.background}>
       <h2 className={classes.login}>Login</h2>
       <div className={classes.inputfield}>
-        <LabeledInput
-          label="Username :"
-          type="text"
-          id="username"
-          required={true}
-          refer={usernameInputRef}
-        />
-        <LabeledInput
-          label="Password :"
-          type="password"
-          id="password"
-          required={true}
-          refer={passwordInputRef}
-        />
+        <div className={classes.LabeledInput}>
+          <LabeledInput
+            label="Username :"
+            type="text"
+            id="username"
+            required={true}
+            refer={usernameInputRef}
+          />
+        </div>
+        <div className={classes.LabeledInput}>
+          <LabeledInput
+            label="Password :"
+            type="password"
+            id="password"
+            required={true}
+            refer={passwordInputRef}
+          />
+        </div>
         <div className={classes.buttonfield}>
           <button onClick={signup_handler} className={classes.button}>
             Sign up
