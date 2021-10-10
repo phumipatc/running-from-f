@@ -1,11 +1,11 @@
-function SearchBar() {
+function SearchBar(props) {
   return (
     <div>
       <input
         type="text"
         placeholder="Search..."
         onChange={(event) => {
-          localStorage.setItem("SearchTerm", event.target.value);
+          props.onSearchChange(event.target.value);
         }}
       />
     </div>

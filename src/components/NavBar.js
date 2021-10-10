@@ -1,14 +1,9 @@
-import { useEffect } from "react";
 import SearchBar from "./SearchBar";
 
-function NavBar() {
-  useEffect(() => {
-    localStorage.removeItem("SearchTerm");
-  }, []);
-
+function NavBar(props) {
   return (
     <div>
-      <SearchBar className="SearchBar" />
+      <SearchBar className="SearchBar" OnSearchChange={props.OnSearchChange} />
     </div>
   );
 }
