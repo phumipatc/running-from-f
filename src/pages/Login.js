@@ -11,8 +11,10 @@ function Login() {
 
   return (
     <div>
-      <p>รวมโจทย์หนี F</p>
-      <LoginForm />
+      <p className={classes.topic}>รวมโจทย์หนี F</p>
+      <div className={classes.form}>
+        <LoginForm />
+      </div>
     </div>
   );
 }

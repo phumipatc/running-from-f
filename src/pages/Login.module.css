@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Mali");
+
+.topic {
+  font-family: "Mali";
+  font-size: 7vh;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 12vh;
+  margin-bottom: 5vh;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

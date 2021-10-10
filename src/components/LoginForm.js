@@ -40,7 +40,7 @@ function LoginForm() {
   return (
     <form className={classes.background}>
       <h2 className={classes.login}>Login</h2>
-      <div>
+      <div className={classes.inputfield}>
         <LabeledInput
           label="Username :"
           type="text"
@@ -55,10 +55,14 @@ function LoginForm() {
           required={true}
           refer={passwordInputRef}
         />
-      </div>
-      <div>
-        <button onClick={signup_handler}>Sign up</button>
-        <button onClick={login_handler}>Login</button>
+        <div className={classes.buttonfield}>
+          <button onClick={signup_handler} className={classes.button}>
+            Sign up
+          </button>
+          <button onClick={login_handler} className={classes.button}>
+            Login
+          </button>
+        </div>
       </div>
     </form>
   );
