@@ -50,7 +50,7 @@ function SubjectList() {
             return val;
           }
         }).map((val, key) => {
-          return <Card key={key} title={val.SubjectName} />;
+          return <Card id={val.SubjectID} title={val.SubjectName} />;
         })}
       </div>
     </div>
