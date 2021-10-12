@@ -13,6 +13,10 @@ function AddNameForm(props) {
       DocName: NameInputValue,
     };
     console.log(DocData);
+    history.push({
+      pathname: "/files",
+      id: props.id,
+    });
   }
   return (
     <form>

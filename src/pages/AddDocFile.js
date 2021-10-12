@@ -6,7 +6,7 @@ function AddDocFile(props) {
   console.log(LinkData);
   return (
     <div>
-      <AddNameForm link={LinkData} />
+      <AddNameForm link={LinkData} id={props.location.id} />
     </div>
   );
 }

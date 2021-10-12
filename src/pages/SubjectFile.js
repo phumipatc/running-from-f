@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Redirect, history, useHistory, location } from "react-router";
+import { Redirect, history, useHistory } from "react-router";
 import Loading from "../components/Loading";
 import classes from "./SubjectFile.module.css";
 import data from "./Mock_Math_Data.json";
@@ -49,6 +49,7 @@ function SubjectFile(props) {
         }}
       />
       <div className={classes.cardfield}>
+        <Card id={props.location.id} add={true} title="Add more document" />
         {FileList.filter((val) => {
           if (
             SearchTerm === "" ||

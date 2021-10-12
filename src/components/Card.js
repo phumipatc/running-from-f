@@ -6,7 +6,12 @@ function Card(props) {
 
   function Click_Handler() {
     console.log(props.id);
-    if (props.id !== undefined) {
+    if (props.add == true) {
+      history.push({
+        pathname: "/add_link",
+        id: props.id,
+      });
+    } else if (props.id !== undefined) {
       history.push({
         pathname: "/files",
         id: props.id,

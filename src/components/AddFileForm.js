@@ -2,7 +2,7 @@ import classes from "./AddFileForm.module.css";
 import DocInput from "./DocInput";
 import { useRef } from "react";
 import { useHistory } from "react-router";
-function AddFileForm() {
+function AddFileForm(props) {
   const history = useHistory();
   const LinkInputRef = useRef();
   function Click_Handler() {
@@ -11,6 +11,7 @@ function AddFileForm() {
       history.push({
         pathname: "/add_file_name",
         link: LinkName,
+        id: props.id,
       });
     }
   }
