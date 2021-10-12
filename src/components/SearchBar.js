@@ -1,7 +1,9 @@
+import classes from "./SearchBar.module.css";
 function SearchBar(props) {
   return (
-    <div>
+    <div className={classes.background}>
       <input
+        className={classes.input}
         type="text"
         placeholder="Search..."
         onChange={(event) => {

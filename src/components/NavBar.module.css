@@ -1,1 +1,12 @@
+.background {
+  background-color: #a1cad0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.topic {
+  font-family: "Mali";
+  font-size: 4vh;
+  padding-left: 10px;
+}

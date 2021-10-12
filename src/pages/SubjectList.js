@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import classes from "./SubjectList.module.css";
 import Loading from "../components/Loading";
 import NavBar from "../components/NavBar";
 import Card from "../components/Card";
+import data from "./Mock_Data.json";
 
 function SubjectList() {
   const [IsLoading, SetIsLoading] = useState(true);
@@ -11,7 +13,8 @@ function SubjectList() {
 
   useEffect(() => {
     document.title = "Subjects";
-
+    SetIsLoading(false);
+    SetSubjectList(data);
     // fetch(API_Link)
     //   .then((response) => {
     //     return response.json();
@@ -23,26 +26,31 @@ function SubjectList() {
   }, []);
 
   if (IsLoading) {
-    return <Loading />;
+    return (
+      <div className={classes.background}>
+        <NavBar />
+        <Loading />
+      </div>
+    );
   }
 
   return (
-    <div>
+    <div className={classes.background}>
       <NavBar
         onSearchChange={(Data) => {
           SetSearchTerm(Data);
         }}
       />
-      <div>
+      <div className={classes.cardfield}>
         {SubjectList.filter((val) => {
           if (
             SearchTerm === "" ||
-            val.title.toLowerrCase().includes(SearchTerm.toLowerCase())
+            val.SubjectName.toLowerCase().includes(SearchTerm.toLowerCase())
           ) {
             return val;
           }
-        }).map((val) => {
-          return <Card title={val.title} />;
+        }).map((val, key) => {
+          return <Card key={key} title={val.SubjectName} />;
         })}
       </div>
     </div>
