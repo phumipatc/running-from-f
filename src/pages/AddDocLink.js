@@ -1,10 +1,10 @@
 import AddFileForm from "../components/AddFileForm";
 import classes from "./AddDocLink.module.css";
 
-function AddDocLink() {
+function AddDocLink(props) {
   return (
-    <div>
-      <AddFileForm />
+    <div className={classes.center}>
+      <AddFileForm id={props.location.id} />
     </div>
   );
 }

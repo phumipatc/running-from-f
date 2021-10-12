@@ -1,0 +1,14 @@
+.button {
+  font-family: "Mali";
+  font-size: 2.4vh;
+  background-color: #c9c9c9;
+  box-sizing: border-box;
+  width: 40%;
+  height: 4vh;
+  margin: 8%;
+  border-radius: 10px;
+}
+.buttonfield {
+  display: grid;
+  place-items: center;
+}

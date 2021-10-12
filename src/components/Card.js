@@ -5,10 +5,23 @@ function Card(props) {
   const history = useHistory();
 
   function Click_Handler() {
-    history.push({
-      pathname: "/files",
-      id: props.id,
-    });
+    console.log(props.id);
+    if (props.add == true) {
+      history.push({
+        pathname: "/add_link",
+        id: props.id,
+      });
+    } else if (props.id !== undefined) {
+      history.push({
+        pathname: "/files",
+        id: props.id,
+      });
+    } else {
+      history.push({
+        pathname: "/showfile",
+        url: props.url,
+      });
+    }
   }
 
   return (

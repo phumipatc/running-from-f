@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import SubjectFile from "./pages/SubjectFile";
 import AddDocLink from "./pages/AddDocLink";
 import AddDocFile from "./pages/AddDocFile";
+import ShowFile from "./pages/ShowFile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/files" component={SubjectFile} />
         <Route exact path="/add_link" component={AddDocLink} />
         <Route exact path="/add_file_name" component={AddDocFile} />
+        <Route exact path="/showfile" component={ShowFile} />
       </Switch>
     </div>
   );
