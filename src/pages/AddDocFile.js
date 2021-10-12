@@ -1,6 +1,13 @@
+import AddNameForm from "../components/AddNameForm";
 import classes from "./AddDocFile.module.css";
-
-function AddDocFile() {
-  return <div></div>;
+import { Redirect, history, useHistory, location } from "react-router";
+function AddDocFile(props) {
+  const LinkData = props.location.link;
+  console.log(LinkData);
+  return (
+    <div>
+      <AddNameForm link={LinkData} />
+    </div>
+  );
 }
 export default AddDocFile;
