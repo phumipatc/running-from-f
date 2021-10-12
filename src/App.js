@@ -4,6 +4,8 @@ import SubjectList from "./pages/SubjectList";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import SubjectFile from "./pages/SubjectFile";
+import AddDocLink from "./pages/AddDocLink";
+import AddDocFile from "./pages/AddDocFile";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/files" component={SubjectFile} />
+        <Route exact path="/add_link" component={AddDocLink} />
+        <Route exact path="/add_file_name" component={AddDocFile} />
       </Switch>
     </div>
   );
