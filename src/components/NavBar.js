@@ -6,7 +6,7 @@ function NavBar(props) {
   return (
     <div className={classes.background}>
       <p className={classes.topic}>รวมโจทย์หนี F</p>
-      <SearchBar className="SearchBar" OnSearchChange={props.OnSearchChange} />
+      <SearchBar className="SearchBar" onSearchChange={props.onSearchChange} />
     </div>
   );
 }
