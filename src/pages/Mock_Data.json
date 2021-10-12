@@ -3,5 +3,6 @@
   { "SubjectID": "test2", "SubjectName": "Math2" },
   { "SubjectID": "test3", "SubjectName": "sci1" },
   { "SubjectID": "test4", "SubjectName": "sci2" },
-  { "SubjectID": "test5", "SubjectName": "eng" }
+  { "SubjectID": "test5", "SubjectName": "eng" },
+  { "SubjectID": "test6", "SubjectName": "thai" }
 ]

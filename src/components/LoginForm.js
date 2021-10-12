@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Redirect, useHistory } from "react-router";
 import LabeledInput from "./LabeledInput";
 import classes from "./LoginForm.module.css";
+import data from "./Mock_User.json";
 
 function LoginForm() {
   const usernameInputRef = useRef();
@@ -27,10 +28,13 @@ function LoginForm() {
     //     return response.json();
     //   })
     //   .then((data) => {
-    //     localStorage.setItem("user", userData.username);
+    //     localStorage.setItem("user", data.firstname);
     //     history.replace("/");
     //   });
-    localStorage.setItem("user", userData.username);
+    if (data.result === "true") {
+      localStorage.setItem("user", data.firstname);
+      history.replace("/");
+    }
   }
 
   function signup_handler() {

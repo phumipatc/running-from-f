@@ -4,15 +4,20 @@ import Loading from "../components/Loading";
 import NavBar from "../components/NavBar";
 import Card from "../components/Card";
 import data from "./Mock_Data.json";
+import { useHistory } from "react-router";
 
 function SubjectList() {
   const [IsLoading, SetIsLoading] = useState(true);
   const [SubjectList, SetSubjectList] = useState();
   const [SearchTerm, SetSearchTerm] = useState("");
+  const history = useHistory();
+  const user = localStorage.getItem("user");
   const API_Link = "";
 
   useEffect(() => {
     document.title = "Subjects";
+    // console.log(user);
+    if (user === null) history.replace("login");
     SetIsLoading(false);
     SetSubjectList(data);
     // fetch(API_Link)
