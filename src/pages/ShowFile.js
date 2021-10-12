@@ -1,23 +1,28 @@
 import { useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
+// import { Document, Page, pdfjs } from "react-pdf";
 import classes from "./ShowFile.module.css";
 
 function ShowFile(props) {
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
-  const full_url =
-    "https://cors-anywhere.herokuapp.com/https://www.mathworksheets.com/1st-grade/MathWorksheetsGrade1_11_1.pdf";
+  // const [numPages, setNumPages] = useState(null);
+  // const [pageNumber, setPageNumber] = useState(1);
+  // const full_url =
+  //   "https://cors-anywhere.herokuapp.com/https://www.mathworksheets.com/1st-grade/MathWorksheetsGrade1_11_1.pdf";
 
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-    setPageNumber(1);
-  }
+  // function onDocumentLoadSuccess({ numPages }) {
+  //   setNumPages(numPages);
+  //   setPageNumber(1);
+  // }
 
   return (
     <div className={classes.background}>
-      <Document
+      <iframe
+        className={classes.pdffile}
+        src={props.location.url}
+        allow="autoplay"
+      ></iframe>
+      {/* <Document
         className={classes.filefield}
         file={{ url: full_url, Headers: { origin: "running-from-f" } }}
         onLoadSuccess={onDocumentLoadSuccess}
@@ -28,7 +33,7 @@ function ShowFile(props) {
             <Page key={`page_${index + 1}`} pageNumber={index + 1} />
           </div>
         ))}
-      </Document>
+      </Document> */}
     </div>
   );
 }

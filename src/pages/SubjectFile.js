@@ -35,7 +35,6 @@ function SubjectFile(props) {
   if (IsLoading) {
     return (
       <div className={classes.background}>
-        <NavBar />
         <Loading />
       </div>
     );
@@ -43,11 +42,6 @@ function SubjectFile(props) {
 
   return (
     <div className={classes.background}>
-      <NavBar
-        onSearchChange={(Data) => {
-          SetSearchTerm(Data);
-        }}
-      />
       <div className={classes.cardfield}>
         <Card id={props.location.id} add={true} title="Add more document" />
         {FileList.filter((val) => {
