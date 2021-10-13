@@ -10,14 +10,16 @@ function NavBar(props) {
   return (
     <div className={classes.background}>
       <p className={classes.topic}>รวมโจทย์หนี F</p>
-      <div>
+      <div className={classes.components}>
         {props.searchable && (
           <SearchBar
-            className="SearchBar"
+            className={classes.searchbar}
             onSearchChange={props.onSearchChange}
           />
         )}
-        <button onClick={logout_handler}>logout</button>
+        <button className={classes.button} onClick={logout_handler}>
+          logout
+        </button>
       </div>
     </div>
   );

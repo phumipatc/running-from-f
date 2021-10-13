@@ -76,10 +76,14 @@ function LoginForm() {
           />
         </div>
         <div className={classes.buttonfield}>
-          <button onClick={signup_handler} className={classes.button}>
+          <button
+            type="button"
+            onClick={signup_handler}
+            className={classes.button}
+          >
             Sign up
           </button>
-          <button onClick={login_handler} className={classes.button}>
+          <button type="submit" className={classes.button}>
             Login
           </button>
         </div>

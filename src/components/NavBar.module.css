@@ -10,3 +10,15 @@
   font-size: 4vh;
   padding-left: 10px;
 }
+
+.components {
+  padding: 15px;
+  display: flex;
+}
+
+.button {
+  width: 100%;
+  font-family: "Mali";
+  background-color: #d7ddc1;
+  border-radius: 5px;
+}
