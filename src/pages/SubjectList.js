@@ -27,10 +27,10 @@ function SubjectList() {
         return response.json();
       })
       .then((data) => {
-        const title = Object.values(data).map((id) => {
-          return { SubjectName: id };
+        const title = Object.entries(data).map(([key, val]) => {
+          return { SubjectName: val, SubjectID: key };
         });
-        // console.log(title);
+        console.log(title);
         SetSubjectList(title);
         SetIsLoading(false);
         // console.log(SubjectList);
@@ -62,9 +62,7 @@ function SubjectList() {
             return val;
           }
         }).map((val, key) => {
-          return (
-            <Card key={key} id={val.SubjectName} title={val.SubjectName} />
-          );
+          return <Card key={key} id={val.SubjectID} title={val.SubjectName} />;
         })}
       </div>
     </div>

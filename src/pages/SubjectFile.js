@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Redirect, history, useHistory } from "react-router";
 import Loading from "../components/Loading";
 import classes from "./SubjectFile.module.css";
-import data from "./Mock_Math_Data.json";
+// import data from "./Mock_Math_Data.json";
 import NavBar from "../components/NavBar";
 import Card from "../components/Card";
 
@@ -15,19 +15,36 @@ function SubjectFile(props) {
 
   useEffect(() => {
     document.title = props.location.id;
-    SetIsLoading(false);
-    SetFileList(data);
-    // fetch(API_Link,{
-    //   body=JSON.stringify(props.id)
-    // }).then((response)=>{
-    //   return response.json();
-    // }).then((data)=>{
-    //   SetIsLoading(false);
-    //   SetFileList(data);
-    // });
+    const data = {
+      tag_id: props.location.id,
+    };
+    // SetIsLoading(false);
+    // SetFileList(data);
+    // console.log(data);
+    fetch(API_Link, {
+      method: "POST",
+      headers: {
+        "x-access-tokens": localStorage.getItem("user"),
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        // console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        const files = Object.values(data).map((val) => {
+          return { FileName: val.file_name, url: val.link };
+        });
+        SetFileList(files);
+        console.log(files);
+        SetIsLoading(false);
+      });
   }, []);
 
-  console.log(props.location.id);
+  // console.log(props.location.id);
   if (props.location.id === undefined) {
     history.replace("/");
   }
