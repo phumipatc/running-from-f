@@ -3,7 +3,7 @@ import classes from "./SubjectList.module.css";
 import Loading from "../components/Loading";
 import NavBar from "../components/NavBar";
 import Card from "../components/Card";
-import data from "./Mock_Data.json";
+// import data from "./Mock_Data.json";
 import { useHistory } from "react-router";
 
 function SubjectList() {
@@ -12,22 +12,29 @@ function SubjectList() {
   const [SearchTerm, SetSearchTerm] = useState("");
   const history = useHistory();
   const user = localStorage.getItem("user");
-  const API_Link = "";
+  const API_Link = "https://fescape-backend.herokuapp.com/tag/all";
 
   useEffect(() => {
     document.title = "Subjects";
-    // console.log(user);
+    // console.log(data);
     if (user === null) history.replace("login");
-    SetIsLoading(false);
-    SetSubjectList(data);
-    // fetch(API_Link)
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     SetIsLoading(false);
-    //     SetSubjectList(data);
-    //   });
+    // SetIsLoading(false);
+    // SetSubjectList(data);
+    fetch(API_Link, {
+      headers: { "x-access-tokens": localStorage.getItem("user") },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const title = Object.values(data).map((id) => {
+          return { SubjectName: id };
+        });
+        // console.log(title);
+        SetSubjectList(title);
+        SetIsLoading(false);
+        // console.log(SubjectList);
+      });
   }, []);
 
   if (IsLoading) {
@@ -55,7 +62,9 @@ function SubjectList() {
             return val;
           }
         }).map((val, key) => {
-          return <Card id={val.SubjectID} title={val.SubjectName} />;
+          return (
+            <Card key={key} id={val.SubjectName} title={val.SubjectName} />
+          );
         })}
       </div>
     </div>

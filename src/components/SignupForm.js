@@ -1,12 +1,15 @@
 import classes from "./SignupForm.module.css";
 import LabeledInput from "./LabeledInput";
 import { useRef } from "react";
+import { useHistory } from "react-router";
 
 function SignupForm() {
   const firstnameInputRef = useRef();
   const lastnameInputRef = useRef();
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
+  const history = useHistory();
+  const API_Link = "https://fescape-backend.herokuapp.com/register";
   function signup_handler(event) {
     event.preventDefault();
     const enteredfirstname = firstnameInputRef.current.value;
@@ -14,12 +17,26 @@ function SignupForm() {
     const enteredUsername = usernameInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
     const signupData = {
-      firstname: enteredfirstname,
-      lastnaem: enteredlastname,
       username: enteredUsername,
       password: enteredPassword,
     };
-    console.log(signupData);
+    console.log(JSON.stringify(signupData));
+    fetch(API_Link, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(signupData),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if (data.message === "createUser successfully") {
+          history.replace("/login");
+        }
+      });
   }
   return (
     <form className={classes.background}>

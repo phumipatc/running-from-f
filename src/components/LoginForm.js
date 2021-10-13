@@ -2,13 +2,12 @@ import { useRef } from "react";
 import { Redirect, useHistory } from "react-router";
 import LabeledInput from "./LabeledInput";
 import classes from "./LoginForm.module.css";
-import data from "./Mock_User.json";
 
 function LoginForm() {
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
   const history = useHistory();
-  const API_Link = "";
+  const API_Link = "https://fescape-backend.herokuapp.com/login";
 
   function login_handler(event) {
     event.preventDefault();
@@ -21,20 +20,33 @@ function LoginForm() {
 
     // Send API
     console.log(userData);
-    // fetch(API_Link, {
-    //   body: JSON.stringify(userData),
-    // })
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     localStorage.setItem("user", data.firstname);
-    //     history.replace("/");
-    //   });
-    if (data.result === "true") {
-      localStorage.setItem("user", data.firstname);
-      history.replace("/");
-    }
+    fetch(API_Link, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization:
+          "Basic " +
+          Buffer.from(userData.username + ":" + userData.password).toString(
+            "base64"
+          ),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.token !== undefined) {
+          localStorage.setItem("user", data.token);
+          history.replace("/");
+        }
+      });
+    // if (data.result === "true") {
+    //   localStorage.setItem("user", data.firstname);
+    //   history.replace("/");
+    // }
   }
 
   function signup_handler() {
@@ -42,7 +54,7 @@ function LoginForm() {
   }
 
   return (
-    <form className={classes.background}>
+    <form className={classes.background} onSubmit={login_handler}>
       <h2 className={classes.login}>Login</h2>
       <div className={classes.inputfield}>
         <div className={classes.LabeledInput}>
