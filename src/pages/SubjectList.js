@@ -49,6 +49,7 @@ function SubjectList() {
   return (
     <div className={classes.background}>
       <NavBar
+        searchable={true}
         onSearchChange={(Data) => {
           SetSearchTerm(Data);
         }}
