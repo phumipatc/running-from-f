@@ -28,9 +28,12 @@ function AddNameForm(props) {
           required={true}
           refer={NameInputRef}
         />
+        <p></p>
       </div>
-      <div>
-        <button onClick={Click_Handler}>choose the selected file</button>
+      <div className={classes.buttonfield}>
+        <button onClick={Click_Handler} className={classes.button}>
+          choose the selected file
+        </button>
       </div>
     </form>
   );

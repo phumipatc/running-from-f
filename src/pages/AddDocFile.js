@@ -5,7 +5,7 @@ function AddDocFile(props) {
   const LinkData = props.location.link;
   console.log(LinkData);
   return (
-    <div>
+    <div className={classes.center}>
       <AddNameForm link={LinkData} id={props.location.id} />
     </div>
   );

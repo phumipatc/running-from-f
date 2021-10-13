@@ -1,0 +1,16 @@
+.background {
+  background-color: #c9c9c9;
+  display: block;
+  width: 300%;
+  height: 100%;
+}
+.topic {
+  align-items: center;
+  font-family: "Mali";
+  font-weight: bold;
+  font-size: 4vh;
+}
+.parent {
+  display: grid;
+  place-items: center;
+}

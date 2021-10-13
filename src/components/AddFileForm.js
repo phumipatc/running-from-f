@@ -25,9 +25,12 @@ function AddFileForm(props) {
           required={true}
           refer={LinkInputRef}
         />
+        <p></p>
       </div>
-      <div>
-        <button onClick={Click_Handler}>select</button>
+      <div className={classes.buttonfield}>
+        <button onClick={Click_Handler} className={classes.button}>
+          select
+        </button>
       </div>
     </form>
   );
