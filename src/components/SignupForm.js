@@ -1,6 +1,6 @@
 import classes from "./SignupForm.module.css";
 import LabeledInput from "./LabeledInput";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useHistory } from "react-router";
 
 function SignupForm() {
@@ -8,6 +8,7 @@ function SignupForm() {
   const lastnameInputRef = useRef();
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
+  const [Result, SetResult] = useState();
   const history = useHistory();
   const API_Link = "https://fescape-backend.herokuapp.com/register";
   function signup_handler(event) {
@@ -35,6 +36,8 @@ function SignupForm() {
       .then((data) => {
         if (data.message === "createUser successfully") {
           history.replace("/login");
+        } else {
+          SetResult(data.message);
         }
       });
   }
@@ -84,6 +87,7 @@ function SignupForm() {
         <button className={classes.button} onClick={signup_handler}>
           Sign up
         </button>
+        <p className={classes.Result}>{Result}</p>
       </div>
     </form>
   );

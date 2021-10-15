@@ -15,6 +15,7 @@ function Card(props) {
       history.push({
         pathname: "/files",
         id: props.id,
+        title: props.title,
       });
     } else {
       window.location.href = props.url;

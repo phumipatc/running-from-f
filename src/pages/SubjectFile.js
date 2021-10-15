@@ -14,7 +14,7 @@ function SubjectFile(props) {
   const API_Link = "https://fescape-backend.herokuapp.com/search/pdf";
 
   useEffect(() => {
-    document.title = props.location.id;
+    document.title = props.location.title;
     const data = {
       tag_id: props.location.id,
     };
@@ -52,6 +52,7 @@ function SubjectFile(props) {
   if (IsLoading) {
     return (
       <div className={classes.background}>
+        <NavBar searchable={false} />
         <Loading />
       </div>
     );

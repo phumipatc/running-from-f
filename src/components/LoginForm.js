@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Redirect, useHistory } from "react-router";
 import LabeledInput from "./LabeledInput";
 import classes from "./LoginForm.module.css";
@@ -7,6 +7,7 @@ function LoginForm() {
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
   const history = useHistory();
+  const [Result, SetResult] = useState();
   const API_Link = "https://fescape-backend.herokuapp.com/login";
 
   function login_handler(event) {
@@ -34,6 +35,9 @@ function LoginForm() {
       body: JSON.stringify(userData),
     })
       .then((response) => {
+        if (response.status == 401) {
+          SetResult("login unsuccessfully: username or password is incorrect");
+        }
         return response.json();
       })
       .then((data) => {
@@ -87,6 +91,7 @@ function LoginForm() {
             Login
           </button>
         </div>
+        <p className={classes.result}>{Result}</p>
       </div>
     </form>
   );
