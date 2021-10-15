@@ -17,10 +17,11 @@ function Card(props) {
         id: props.id,
       });
     } else {
-      history.push({
-        pathname: "/showfile",
-        url: props.url,
-      });
+      window.location.href = props.url;
+      // history.push({
+      //   pathname: "/showfile",
+      //   url: props.url,
+      // });
     }
   }
 

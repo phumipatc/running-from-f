@@ -10,7 +10,7 @@ function Login() {
   }, []);
 
   return (
-    <div>
+    <div className={classes.background}>
       <p className={classes.topic}>รวมโจทย์หนี F</p>
       <div className={classes.form}>
         <LoginForm />

@@ -1,9 +1,12 @@
 .background {
-  background-color: #f9d7d5;
+  box-sizing: border-box;
+  /* background-color: #f9d7d5; */
+  background-image: linear-gradient(to bottom, #f9d7d5, #a1cad0);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .topic {
@@ -19,5 +22,6 @@
   background-color: white;
   box-sizing: border-box;
   width: 77vw;
-  height: 70vh;
+  height: auto;
+  border-radius: 20px;
 }

@@ -9,7 +9,14 @@ function NavBar(props) {
   }
   return (
     <div className={classes.background}>
-      <p className={classes.topic}>รวมโจทย์หนี F</p>
+      <button
+        className={classes.topic}
+        onClick={() => {
+          history.replace("/");
+        }}
+      >
+        รวมโจทย์หนี F
+      </button>
       <div className={classes.components}>
         {props.searchable && (
           <SearchBar

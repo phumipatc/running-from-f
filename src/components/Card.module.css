@@ -6,7 +6,8 @@
 }
 
 .button {
-  background-color: #d7ddc1;
+  /* background-color: #d7ddc1; */
+  background-image: linear-gradient(to bottom right, #fbece5, #d7ddc1);
   width: 100%;
   height: 100%;
   border-radius: 10px;

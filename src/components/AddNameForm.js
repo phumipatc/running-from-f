@@ -6,6 +6,7 @@ function AddNameForm(props) {
   const NameInputRef = useRef();
   const history = useHistory();
   const API_Link = "https://fescape-backend.herokuapp.com/pdf/create";
+
   function Click_Handler(event) {
     event.preventDefault();
     const NameInputValue = NameInputRef.current.value;
