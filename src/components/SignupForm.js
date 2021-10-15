@@ -76,7 +76,7 @@ function SignupForm() {
         <div className={classes.LabeledInput}>
           <LabeledInput
             label="Password :"
-            type="text"
+            type="password"
             id="Password"
             required={true}
             refer={passwordInputRef}
@@ -87,7 +87,7 @@ function SignupForm() {
         <button className={classes.button} onClick={signup_handler}>
           Sign up
         </button>
-        <p className={classes.Result}>{Result}</p>
+        <p className={classes.result}>{Result}</p>
       </div>
     </form>
   );
