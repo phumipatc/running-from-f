@@ -1,5 +1,3 @@
-import { useState } from "react";
-// import { Document, Page, pdfjs } from "react-pdf";
 import classes from "./ShowFile.module.css";
 
 function ShowFile(props) {
@@ -18,6 +16,7 @@ function ShowFile(props) {
   return (
     <div className={classes.background}>
       <iframe
+        title={props.location.url}
         className={classes.pdffile}
         src={props.location.url}
         allow="autoplay"

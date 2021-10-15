@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Redirect, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import LabeledInput from "./LabeledInput";
 import classes from "./LoginForm.module.css";
 
@@ -35,7 +35,7 @@ function LoginForm() {
       body: JSON.stringify(userData),
     })
       .then((response) => {
-        if (response.status == 401) {
+        if (response.status === 401) {
           SetResult("login unsuccessfully: username or password is incorrect");
         }
         return response.json();

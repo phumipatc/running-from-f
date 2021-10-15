@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Redirect, history, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import Loading from "../components/Loading";
 import classes from "./SubjectFile.module.css";
 // import data from "./Mock_Math_Data.json";
@@ -9,7 +9,6 @@ import Card from "../components/Card";
 function SubjectFile(props) {
   const [FileList, SetFileList] = useState();
   const [IsLoading, SetIsLoading] = useState(true);
-  const [SearchTerm, SetSearchTerm] = useState("");
   const history = useHistory();
   const API_Link = "https://fescape-backend.herokuapp.com/search/pdf";
 
@@ -42,7 +41,7 @@ function SubjectFile(props) {
         console.log(files);
         SetIsLoading(false);
       });
-  }, []);
+  }, [props.location.id, props.location.title]);
 
   // console.log(props.location.id);
   if (props.location.id === undefined) {
@@ -64,15 +63,8 @@ function SubjectFile(props) {
       <p className={classes.topic}>{props.location.title}</p>
       <div className={classes.cardfield}>
         <Card id={props.location.id} add={true} title="Add more document" />
-        {FileList.filter((val) => {
-          if (
-            SearchTerm === "" ||
-            val.SubjectName.toLowerCase().includes(SearchTerm.toLowerCase())
-          ) {
-            return val;
-          }
-        }).map((val, key) => {
-          return <Card url={val.url} title={val.FileName} />;
+        {FileList.map((val, key) => {
+          return <Card key={key} url={val.url} title={val.FileName} />;
         })}
       </div>
     </div>

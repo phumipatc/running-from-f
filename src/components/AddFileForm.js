@@ -7,7 +7,7 @@ function AddFileForm(props) {
   const LinkInputRef = useRef();
   function Click_Handler() {
     const LinkName = LinkInputRef.current.value;
-    if (LinkName != "") {
+    if (LinkName !== "") {
       history.push({
         pathname: "/add_file_name",
         link: LinkName,

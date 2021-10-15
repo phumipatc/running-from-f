@@ -1,7 +1,7 @@
 import classes from "./AddNameForm.module.css";
 import DocInput from "./DocInput";
 import { useRef } from "react";
-import { Redirect, history, useHistory, location } from "react-router";
+import { useHistory } from "react-router";
 function AddNameForm(props) {
   const NameInputRef = useRef();
   const history = useHistory();

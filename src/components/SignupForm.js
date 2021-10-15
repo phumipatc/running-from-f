@@ -13,8 +13,6 @@ function SignupForm() {
   const API_Link = "https://fescape-backend.herokuapp.com/register";
   function signup_handler(event) {
     event.preventDefault();
-    const enteredfirstname = firstnameInputRef.current.value;
-    const enteredlastname = lastnameInputRef.current.value;
     const enteredUsername = usernameInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
     const signupData = {

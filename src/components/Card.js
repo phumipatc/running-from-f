@@ -6,7 +6,7 @@ function Card(props) {
 
   function Click_Handler() {
     console.log(props.id);
-    if (props.add == true) {
+    if (props.add === true) {
       history.push({
         pathname: "/add_link",
         id: props.id,
