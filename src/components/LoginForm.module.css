@@ -44,6 +44,10 @@
   border-radius: 10px;
 }
 
+.button:hover {
+  background-image: linear-gradient(to bottom right, #d7ddc1, #dad583);
+}
+
 .result {
   font-family: "Mali";
   margin: 0px;

@@ -61,6 +61,7 @@ function SubjectFile(props) {
   return (
     <div className={classes.background}>
       <NavBar searchable={false} />
+      <p className={classes.topic}>{props.location.title}</p>
       <div className={classes.cardfield}>
         <Card id={props.location.id} add={true} title="Add more document" />
         {FileList.filter((val) => {
